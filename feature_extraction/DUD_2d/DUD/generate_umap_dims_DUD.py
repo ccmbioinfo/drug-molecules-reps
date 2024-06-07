@@ -11,27 +11,27 @@ from torch.nn.functional import pad
 target_list = {
             #     1: 'ace', 
             #    2: 'ache',
-               3: 'ar',
-               4: 'cdk2',
-               5: 'cox2', 
-               6: 'dhfr',
-               7: 'egfr',
-               8: 'er_agonist',
-               9: 'fgfr1',
-               10: 'fxa',
-               11: 'gpb',
-               12: 'gr',
-               13: 'hivrt',
-               14: 'inha',
-               15: 'na',
-               16: 'p38',
-               17: 'parp',
-               18: 'pdgfrb',
-               19: 'sahh',
-               20: 'src',
-               21:'vegfr2'
+            #    3: 'ar',
+            #    4: 'cdk2',
+            #    5: 'cox2', 
+               6: 'dhfr'
+            #    7: 'egfr',
+            #    8: 'er_agonist',
+            #    9: 'fgfr1',
+            #    10: 'fxa',
+            #    11: 'gpb',
+            #    12: 'gr',
+            #    13: 'hivrt',
+            #    14: 'inha',
+            #    15: 'na',
+            #    16: 'p38',
+            #    17: 'parp',
+            #    18: 'pdgfrb',
+            #    19: 'sahh',
+            #    20: 'src',
+            #    21:'vegfr2'
                }
-input_string = target_list[6]
+# input_string = target_list[6]
 input_path = "feature_outputs/"
 output_path = "umap_outputs/"
 dataset = 'datafiles/'
@@ -89,16 +89,16 @@ def umap_reducer(list, target, model):
 
 # model = model1
 # model = model4
-# model = model5
-# outfile = model.split('/')[1]
-# tensor_list = load_data(outfile)
-# umap_reducer(tensor_list, outfile)
+model = model5
+outfile = model.split('/')[1]
+tensor_list = load_data(target_list[6], outfile)
+umap_reducer(tensor_list, target_list[6], outfile)
 
 #for reducing dimensions for all files
-for target in target_list.values():
-    for m in [model1, model4, model5]:
-        model = m.split('/')[1]
-        print(f'Running: {target} with {model}')
-        tensor_list = load_data(target, model)
-        umap_reducer(tensor_list, target, model)
+# for target in target_list.values():
+#     for m in [model1, model4, model5]:
+#         model = m.split('/')[1]
+#         print(f'Running: {target} with {model}')
+#         tensor_list = load_data(target, model)
+#         umap_reducer(tensor_list, target, model)
 

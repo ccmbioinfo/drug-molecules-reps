@@ -7,8 +7,8 @@ import selfies as sf
 
 
 hpf_path = "/hpf/largeprojects/ccmbio/monikas/packages/"
-parent_folder = "DUD/"
-output_path = parent_folder + "feature_outputs/"
+dataset = 'datafiles/'
+output_path = "feature_outputs/"
 smile_column = "SMILES"
 # parent_folder = "DUD/"
 target_list = {1: 'ace', 
@@ -43,9 +43,9 @@ model5 = "ncfrey/ChemGPT-1.2B"
 
 def read_data(input_string):
     #separator for columns in these files is tab
-    smiles_actives = pd.read_csv("cmp_list_DUD_" + input_string + "_actives.dat", sep='\t')[[smile_column]]
+    smiles_actives = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_actives.dat", sep='\t')[[smile_column]]
     print(f'Data: {type(smiles_actives)}')
-    smiles_decoys = pd.read_csv("cmp_list_DUD_" + input_string + "_decoys.dat", sep='\t')[[smile_column]]
+    smiles_decoys = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_decoys.dat", sep='\t')[[smile_column]]
     new_df = pd.concat([smiles_actives, smiles_decoys], axis=0, ignore_index=True) #Haven't run with ignore_index yet
     # print(f'New: {new_df}')
     return new_df
@@ -74,7 +74,7 @@ start_time = time.time()
 # feature_extraction(model2) #ERROR: unexpected 'token_type_ids'
 # features = feature_extraction(model3, True)  #Errors out in mapping model file in pipeline statement I think
 # feature_extraction(model4, input_string) #ChemBERT
-# feature_extraction(model5, input_string) #ChemGPT
+feature_extraction(model5, input_string) #ChemGPT
 
 #Loop for generating all .pt files
 # for i in range(1,22):

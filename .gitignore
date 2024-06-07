@@ -2,5 +2,5 @@
 **/*.csv
 **/features_*.txt
 **/*.dat
-
+**/*.pkl
 **/*.DS_Store
