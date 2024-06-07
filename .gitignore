@@ -1,3 +1,6 @@
 **/*.pt
 **/*.csv
 **/features_*.txt
+**/*.dat
+
+**/*.DS_Store
