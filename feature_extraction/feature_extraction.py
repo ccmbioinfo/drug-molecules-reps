@@ -7,11 +7,12 @@ import selfies as sf
 
 
 hpf_path = "/hpf/largeprojects/ccmbio/monikas/packages/"
+is_BBBP = False
 
 #For Ames dataset
-# parent_folder = "Ames_smi/"
-# input_file = parent_folder + "Ames.csv"
-# smile_column = "Canonical_Smiles"
+parent_folder = "Ames_smi/"
+input_file = parent_folder + "Ames.csv"
+smile_column = "Canonical_Smiles"
 
 #For BBBP dataset
 # parent_folder = "bbbp_smi/"
@@ -20,9 +21,9 @@ hpf_path = "/hpf/largeprojects/ccmbio/monikas/packages/"
 # smile_column = "smiles"
 
 #For ClinTox dataset
-parent_folder = "ClinTox_smi/"
-input_file = parent_folder + "ClinTox.csv"
-smile_column = "smiles"
+# parent_folder = "ClinTox_smi/"
+# input_file = parent_folder + "ClinTox.csv"
+# smile_column = "smiles"
 
 output_path = parent_folder + "feature_outputs/"
 
@@ -33,7 +34,7 @@ model4 = "DeepChem/ChemBERTa-77M-MTR"
 model5 = "ncfrey/ChemGPT-1.2B"
 
 
-def get_data(is_BBBP=False):
+def get_data():
     if is_BBBP:
         encoding='latin-1'
     else:
@@ -45,7 +46,9 @@ def get_features(extractor, conversion_to_selfie):
     df = get_data()
     if conversion_to_selfie:
         df[smile_column] = df[smile_column].apply(sf.encoder)
+    print(f'Before extractor')
     features = extractor(df[smile_column].tolist(), return_tensors = "pt")
+    print(f'After extractor')
     return features
 
 def feature_extraction(model_path, conversion_to_selfie=False):
@@ -59,9 +62,9 @@ def feature_extraction(model_path, conversion_to_selfie=False):
 
 start_time = time.time()
 
-feature_extraction(model1)
+# feature_extraction(model1)
 # feature_extraction(model2) #ERROR: unexpected 'token_type_ids'
-# features = feature_extraction(model3, True)  #Errors out in mapping model file in pipeline statement I think
+features = feature_extraction(model3, True)  #Errors out in mapping model file in pipeline statement I think
 # feature_extraction(model4) #ChemBERT
 # feature_extraction(model5) #ChemGPT
 
