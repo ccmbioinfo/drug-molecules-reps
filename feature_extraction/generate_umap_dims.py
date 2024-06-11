@@ -70,7 +70,7 @@ def get_labels():
     else:
         encoding = 'utf-8' #default
     df = pd.read_csv(dataset_file, encoding = encoding)
-    if is_BARTSmiles: #to filter the long molecules
+    if is_BARTSmiles: #to filter the long molecules for correct labels for model2
         df = remove_long_molecules(df)
     print(f"Labels: {len(df)} {df}")
     return df[label_column]
