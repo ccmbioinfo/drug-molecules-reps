@@ -1,4 +1,4 @@
-from transformers import pipeline
+from transformers import pipeline, AutoTokenizer
 import pandas as pd
 import torch
 import numpy as np
@@ -10,8 +10,8 @@ hpf_path = "/hpf/largeprojects/ccmbio/monikas/packages/"
 dataset = 'datafiles/'
 output_path = "feature_outputs/"
 smile_column = "SMILES"
-# parent_folder = "DUD/"
-target_list = {1: 'ace', 
+target_list = {
+               1: 'ace',
                2: 'ache',
                3: 'ar',
                4: 'cdk2',
@@ -31,9 +31,9 @@ target_list = {1: 'ace',
                18: 'pdgfrb',
                19: 'sahh',
                20: 'src',
-               21:'vegfr2'
+               21: 'vegfr2'
                }
-input_string = target_list[6]
+# input_string = target_list[6]
 
 model1 = "msb-roshan/molgpt"
 model2 = "gayane/BARTSmiles"
@@ -44,14 +44,13 @@ model5 = "ncfrey/ChemGPT-1.2B"
 def read_data(input_string):
     #separator for columns in these files is tab
     smiles_actives = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_actives.dat", sep='\t')[[smile_column]]
-    print(f'Data: {type(smiles_actives)}')
+    # print(f'Data: {type(smiles_actives)}')
     smiles_decoys = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_decoys.dat", sep='\t')[[smile_column]]
     new_df = pd.concat([smiles_actives, smiles_decoys], axis=0, ignore_index=True) #Haven't run with ignore_index yet
     # print(f'New: {new_df}')
     return new_df
 
-# read_data()
-
+# '''
 def get_features(extractor, input_str, conversion_to_selfie):
     df = read_data(input_str)
     if conversion_to_selfie:
@@ -62,25 +61,55 @@ def get_features(extractor, input_str, conversion_to_selfie):
 def feature_extraction(model_path, input_str, conversion_to_selfie=False):
     print("Running Model:", model_path)
     outfile = model_path.split('/')[1]
-    extractor = pipeline("feature-extraction", framework="pt", model = model_path, model_kwargs={'cache_dir': hpf_path})
+    # extractor = pipeline("feature-extraction", framework="pt", model = model_path, model_kwargs={'cache_dir': hpf_path})
+    tokenizer=AutoTokenizer.from_pretrained(model2)
+    extractor = pipeline("feature-extraction", framework="pt", model = model_path, model_kwargs={'cache_dir': hpf_path}, tokenizer=tokenizer, tokenize_kwargs ={'return_token_type_ids': False})
+
     features = get_features(extractor, input_str, conversion_to_selfie)
     out_filename = output_path + "features_"+ input_str + "_" + outfile + ".pt"
     torch.save(features, out_filename)
+# '''
+
+# def get_features(extractor, input_str, conversion_to_selfie):
+#     df = read_data(input_str)
+#     if conversion_to_selfie:
+#         df[smile_column] = df[smile_column].apply(sf.encoder)
+#     tokenizer = AutoTokenizer.from_pretrained(model2)
+#     counter = 0
+#     for i in df[smile_column].tolist():
+#         tokens = tokenizer(i)
+#         token_len = len(tokens.input_ids)
+#         # print(f"Tokenizer len: {token_len}")
+#         if token_len > 128:
+#             # print(f'Molecule:', i)
+#             # print(f'Tokens: {tokens}')
+#             counter += 1
+#     print(f"Counter: {counter}, {len(df[smile_column])}, \nfraction: {(counter/len(df[smile_column]))*100}" )
+
+# def feature_extraction(model_path, input_str, conversion_to_selfie=False):
+#     print("Running Model:", model_path)
+#     extractor = pipeline("feature-extraction", framework="pt", model = model_path, model_kwargs={'cache_dir': hpf_path})
+#     get_features(extractor,input_str, conversion_to_selfie)
+
 
 
 start_time = time.time()
 
 # feature_extraction(model1, input_string) #MolGPT
-# feature_extraction(model2) #ERROR: unexpected 'token_type_ids'
+# feature_extraction(model2, target_list[1]) #ERROR: unexpected 'token_type_ids'
 # features = feature_extraction(model3, True)  #Errors out in mapping model file in pipeline statement I think
 # feature_extraction(model4, input_string) #ChemBERT
-feature_extraction(model5, input_string) #ChemGPT
+# feature_extraction(model5, input_string) #ChemGPT
 
 #Loop for generating all .pt files
-# for i in range(1,22):
-#     feature_extraction(model1, target_list[i]) #MolGPT
-#     feature_extraction(model4, target_list[i]) #MolGPT
-#     feature_extraction(model5, target_list[i]) #MolGPT
+for target in target_list.values():
+    # for m in [model1, model4, model5]:
+    # feature_extraction(model1, target_list[i]) #MolGPT
+    print(f'Running: {target} with {model2}')
+    feature_extraction(model2, target) #BartSmiles
+    # feature_extraction(model3, target, True) #MolGen
+    # feature_extraction(model4, target) #ChemBERT
+    # feature_extraction(model5, target]=) #ChemGPT
 
 end_time = time.time()
 total_time = end_time-start_time
