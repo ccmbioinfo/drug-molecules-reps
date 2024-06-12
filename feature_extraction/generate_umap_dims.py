@@ -7,18 +7,18 @@ import matplotlib.pyplot as plt
 from torch.nn.functional import pad
 
 #For Ames dataset
-# parent_folder = "Ames_smi/"
-# dataset_file = parent_folder + "Ames.csv"
-# label_column = "Activity"
-# smile_column = "Canonical_Smiles"
+parent_folder = "Ames_smi/"
+dataset_file = parent_folder + "Ames.csv"
+label_column = "Activity"
+smile_column = "Canonical_Smiles"
 
 
 #For BBBP dataset
-parent_folder = "bbbp_smi/"
-dataset_file = parent_folder + "BBBP.csv"
-is_BBBP = True
-label_column = "p_np"
-smile_column = "smiles"
+# parent_folder = "bbbp_smi/"
+# dataset_file = parent_folder + "BBBP.csv"
+# is_BBBP = True
+# label_column = "p_np"
+# smile_column = "smiles"
 
 
 #For ClinTox dataset
@@ -38,6 +38,7 @@ model4 = "DeepChem/ChemBERTa-77M-MTR"
 model5 = "ncfrey/ChemGPT-1.2B"
 
 def load_data(outfile):
+    print(f"Loading pt file..")
     filepath = input_path + "features_labels_"+ outfile + ".pt"
     data = torch.load(filepath)
     features = data['tensors']
@@ -55,6 +56,7 @@ def preprocess_tensors(tensor_list):
     return concatenated_tensors
 
 def umap_reducer(list, labels, outfile):
+    print(f"Generating umap dimensions..")
     tensors = preprocess_tensors(list)
     data = tensors.numpy()
     reducer = umap.UMAP()
