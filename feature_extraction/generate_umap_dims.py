@@ -5,10 +5,6 @@ import pandas as pd
 import torch
 import matplotlib.pyplot as plt
 from torch.nn.functional import pad
-from transformers import AutoTokenizer
-
-is_BARTSmiles = False
-is_BBBP = False
 
 #For Ames dataset
 # parent_folder = "Ames_smi/"
@@ -37,15 +33,18 @@ output_path = parent_folder + "umap_outputs/"
 
 model1 = "msb-roshan/molgpt"
 model2 = "gayane/BARTSmiles"
-model3 = "zjunlp/MolGen-7b" #Needs SELFIES notation, ERRORs out
+model3 = "zjunlp/MolGen-7b" #Needs SELFIES notation
 model4 = "DeepChem/ChemBERTa-77M-MTR" 
 model5 = "ncfrey/ChemGPT-1.2B"
 
 def load_data(outfile):
-    filepath = input_path + "features_"+ outfile + ".pt"
-    features = torch.load(filepath)
-    print(len(features))
-    return features
+    filepath = input_path + "features_labels_"+ outfile + ".pt"
+    data = torch.load(filepath)
+    features = data['tensors']
+    labels = data['labels']
+    print(f"Pt file read: \n{len(features)}")
+    print(f"Labels: \n{len(labels)}")
+    return features, labels
 
 def preprocess_tensors(tensor_list):
     flattened_list = [tensor.view(tensor.size(0), -1) for tensor in tensor_list]
@@ -55,28 +54,7 @@ def preprocess_tensors(tensor_list):
     concatenated_tensors = torch.cat(padded_tensors, dim=0)
     return concatenated_tensors
 
-def remove_long_molecules(df):
-    """to handle the index out of range error due to max positional embedding limit of 128 in Model2, long molecules with token length > 128 are removed"""
-    tokenizer = AutoTokenizer.from_pretrained(model2)
-    mask = df[smile_column].apply(lambda smiles: len(tokenizer(smiles).input_ids) > 128)
-    counter = mask.sum()
-    filtered = df[~mask].reset_index(drop=True)
-    print(f"Counter: {counter}, {len(df)}, \nfraction: {(counter/len(df))*100}" )
-    return filtered
-
-def get_labels():
-    if is_BBBP:
-        encoding='latin-1'
-    else:
-        encoding = 'utf-8' #default
-    df = pd.read_csv(dataset_file, encoding = encoding)
-    if is_BARTSmiles: #to filter the long molecules for correct labels for model2
-        df = remove_long_molecules(df)
-    print(f"Labels: {len(df)} {df}")
-    return df[label_column]
-
-def umap_reducer(list):
-    labels = get_labels()
+def umap_reducer(list, labels, outfile):
     tensors = preprocess_tensors(list)
     data = tensors.numpy()
     reducer = umap.UMAP()
@@ -86,12 +64,14 @@ def umap_reducer(list):
     print(f"df: {df}")
     df.to_csv(output_path + "embeddings_" + outfile + ".csv")
 
+def gen_umap(model):
+    outfile = model.split('/')[1]
+    tensor_list, labels = load_data(outfile)
+    umap_reducer(tensor_list, labels, outfile)
 
-# model = model1
-model = model2
-is_BARTSmiles = True
-# model = model4
-# model = model5
-outfile = model.split('/')[1]
-tensor_list = load_data(outfile)
-umap_reducer(tensor_list)
+gen_umap(model1)
+gen_umap(model2)
+gen_umap(model3)
+gen_umap(model4)
+gen_umap(model5)
+
