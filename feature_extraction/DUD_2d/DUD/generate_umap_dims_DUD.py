@@ -3,16 +3,17 @@ import pandas as pd
 import torch
 import matplotlib.pyplot as plt
 from torch.nn.functional import pad
+import time
 
 
 #For DUD dataset
 target_list = {
-            #     1: 'ace',
-            #    2: 'ache',
-            #    3: 'ar',
-            #    4: 'cdk2',
-            #    5: 'cox2',
-            #    6: 'dhfr',
+                1: 'ace',
+               2: 'ache',
+               3: 'ar',
+               4: 'cdk2',
+               5: 'cox2',
+               6: 'dhfr',
                7: 'egfr',
                8: 'er_agonist',
                9: 'fgfr1',
@@ -63,12 +64,15 @@ def umap_reducer(list, target, labels, model):
     tensors = preprocess_tensors(list)
     data = tensors.numpy()
     reducer = umap.UMAP()
+    start_time = time.time()
+    print(f"Starting umap reduction at: {start_time}")
     embedding = reducer.fit_transform(data) #reduces to 2D data
     df = pd.DataFrame(embedding, columns=['Dim1', 'Dim2'])
     # print(f"DF: {df}")
     df['Labels'] = labels
     print(f"df: {df}")
     df.to_csv(output_path + "embeddings_" + target + "_" + model + ".csv") #No labels in this dataset, CAS numbers are there, that too missing for some rows
+    print(f"Reduction and saving took: {time.time() - start_time}")
 
 
 
@@ -82,6 +86,7 @@ def umap_reducer(list, target, labels, model):
 #for reducing dimensions for all files
 for target in target_list.values():
     for m in [model1, model2, model3, model4, model5]:
+    # for m in [model1]: #for egfr chem gpt
         model = m.split('/')[1]
         print(f'Running: {target} with {model}')
         tensor_list, labels = load_data(target, model)

@@ -9,6 +9,7 @@ hpf_path = "/hpf/largeprojects/ccmbio/monikas/packages/"
 dataset = 'datafiles/'
 output_path = "feature_outputs/"
 smile_column = "SMILES"
+label_column = 'Labels'
 target_list = {
                1: 'ace',
                2: 'ache',
@@ -42,11 +43,13 @@ model5 = "ncfrey/ChemGPT-1.2B"
 
 def read_data(input_string):
     #separator for columns in these files is tab
-    smiles_actives = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_actives.dat", sep='\t')
+    smiles_actives = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_actives.dat", sep='\t')[[smile_column]]
     # print(f'Data: {type(smiles_actives)}')
-    smiles_decoys = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_decoys.dat", sep='\t')
+    smiles_decoys = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_decoys.dat", sep='\t')[[smile_column]]
+    smiles_actives[label_column] = 'actives'
+    smiles_decoys[label_column] = 'decoys'
     new_df = pd.concat([smiles_actives, smiles_decoys], axis=0, ignore_index=True)
-    # print(f'New: {new_df}')
+    print(f'New: {new_df}')
     return new_df
 
 # '''
@@ -55,7 +58,7 @@ def get_features(extractor, input_str, conversion_to_selfie):
     if conversion_to_selfie:
         df[smile_column] = df[smile_column].apply(sf.encoder) #No invalid selfies in DUD, so no handler here
     features = extractor(df[smile_column].tolist(), return_tensors = "pt")
-    return features, df[smile_column]
+    return features, df[label_column]
 
 def feature_extraction(model_path, input_str, conversion_to_selfie=False):
     start_time = time.time()
@@ -81,10 +84,10 @@ start_time = time.time()
 
 #Loop for generating all .pt files
 for target in target_list.values():
-    # feature_extraction(model1, target) #MolGPT
-    # feature_extraction(model2, target) #BartSmiles
-    # feature_extraction(model3, target, True) #MolGen
-    # feature_extraction(model4, target) #ChemBERT
+    feature_extraction(model1, target) #MolGPT
+    feature_extraction(model2, target) #BartSmiles
+    feature_extraction(model3, target, True) #MolGen
+    feature_extraction(model4, target) #ChemBERT
     feature_extraction(model5, target) #ChemGPT
 
 end_time = time.time()
