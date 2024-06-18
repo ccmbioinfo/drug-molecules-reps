@@ -1,7 +1,6 @@
-from transformers import pipeline, AutoTokenizer
+from transformers import pipeline
 import pandas as pd
 import torch
-import numpy as np
 import time
 import selfies as sf
 
@@ -15,7 +14,7 @@ target_list = {
                2: 'ache',
                3: 'ar',
                4: 'cdk2',
-               5: 'cox2', 
+               5: 'cox2',
                6: 'dhfr',
                7: 'egfr',
                8: 'er_agonist',
@@ -43,10 +42,10 @@ model5 = "ncfrey/ChemGPT-1.2B"
 
 def read_data(input_string):
     #separator for columns in these files is tab
-    smiles_actives = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_actives.dat", sep='\t')[[smile_column]]
+    smiles_actives = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_actives.dat", sep='\t')
     # print(f'Data: {type(smiles_actives)}')
-    smiles_decoys = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_decoys.dat", sep='\t')[[smile_column]]
-    new_df = pd.concat([smiles_actives, smiles_decoys], axis=0, ignore_index=True) #Haven't run with ignore_index yet
+    smiles_decoys = pd.read_csv(dataset + "cmp_list_DUD_" + input_string + "_decoys.dat", sep='\t')
+    new_df = pd.concat([smiles_actives, smiles_decoys], axis=0, ignore_index=True)
     # print(f'New: {new_df}')
     return new_df
 
@@ -54,44 +53,23 @@ def read_data(input_string):
 def get_features(extractor, input_str, conversion_to_selfie):
     df = read_data(input_str)
     if conversion_to_selfie:
-        df[smile_column] = df[smile_column].apply(sf.encoder)
+        df[smile_column] = df[smile_column].apply(sf.encoder) #No invalid selfies in DUD, so no handler here
     features = extractor(df[smile_column].tolist(), return_tensors = "pt")
-    return features
+    return features, df[smile_column]
 
 def feature_extraction(model_path, input_str, conversion_to_selfie=False):
-    print("Running Model:", model_path)
+    start_time = time.time()
+    print("Running Model:", model_path, "for:", input_str, "at:", time.time())
     outfile = model_path.split('/')[1]
-    # extractor = pipeline("feature-extraction", framework="pt", model = model_path, model_kwargs={'cache_dir': hpf_path})
-    tokenizer=AutoTokenizer.from_pretrained(model2)
-    extractor = pipeline("feature-extraction", framework="pt", model = model_path, model_kwargs={'cache_dir': hpf_path}, tokenizer=tokenizer, tokenize_kwargs ={'return_token_type_ids': False})
-
-    features = get_features(extractor, input_str, conversion_to_selfie)
-    out_filename = output_path + "features_"+ input_str + "_" + outfile + ".pt"
-    torch.save(features, out_filename)
+    extractor = pipeline("feature-extraction", framework="pt", model = model_path, model_kwargs={'cache_dir': hpf_path}, tokenize_kwargs ={'return_token_type_ids': False})
+    features, labels = get_features(extractor, input_str, conversion_to_selfie)
+    out_filename = output_path + "features_labels_"+ input_str + "_" + outfile + ".pt"
+    tensor_wth_labels = {'tensors': features, 'labels': labels}
+    torch.save(tensor_wth_labels, out_filename)
+    end_time = time.time()
+    print("Saved file at:", end_time - start_time)
+    # torch.save(features, out_filename)
 # '''
-
-# def get_features(extractor, input_str, conversion_to_selfie):
-#     df = read_data(input_str)
-#     if conversion_to_selfie:
-#         df[smile_column] = df[smile_column].apply(sf.encoder)
-#     tokenizer = AutoTokenizer.from_pretrained(model2)
-#     counter = 0
-#     for i in df[smile_column].tolist():
-#         tokens = tokenizer(i)
-#         token_len = len(tokens.input_ids)
-#         # print(f"Tokenizer len: {token_len}")
-#         if token_len > 128:
-#             # print(f'Molecule:', i)
-#             # print(f'Tokens: {tokens}')
-#             counter += 1
-#     print(f"Counter: {counter}, {len(df[smile_column])}, \nfraction: {(counter/len(df[smile_column]))*100}" )
-
-# def feature_extraction(model_path, input_str, conversion_to_selfie=False):
-#     print("Running Model:", model_path)
-#     extractor = pipeline("feature-extraction", framework="pt", model = model_path, model_kwargs={'cache_dir': hpf_path})
-#     get_features(extractor,input_str, conversion_to_selfie)
-
-
 
 start_time = time.time()
 
@@ -103,13 +81,11 @@ start_time = time.time()
 
 #Loop for generating all .pt files
 for target in target_list.values():
-    # for m in [model1, model4, model5]:
-    # feature_extraction(model1, target_list[i]) #MolGPT
-    print(f'Running: {target} with {model2}')
-    feature_extraction(model2, target) #BartSmiles
+    # feature_extraction(model1, target) #MolGPT
+    # feature_extraction(model2, target) #BartSmiles
     # feature_extraction(model3, target, True) #MolGen
     # feature_extraction(model4, target) #ChemBERT
-    # feature_extraction(model5, target]=) #ChemGPT
+    feature_extraction(model5, target) #ChemGPT
 
 end_time = time.time()
 total_time = end_time-start_time
