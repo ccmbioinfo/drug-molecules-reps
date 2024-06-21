@@ -28,7 +28,7 @@ target_list = {
                18: 'pdgfrb',
                19: 'sahh',
                20: 'src',
-               21:'vegfr2'
+               21: 'vegfr2'
                }
 # input_string = target_list[6]
 input_path = "feature_outputs/"
@@ -86,7 +86,7 @@ def umap_reducer(list, target, labels, model):
 #for reducing dimensions for all files
 for target in target_list.values():
     for m in [model1, model2, model3, model4, model5]:
-    # for m in [model1]: #for egfr chem gpt
+    # for m in [model5]: #for fxa chem gpt
         model = m.split('/')[1]
         print(f'Running: {target} with {model}')
         tensor_list, labels = load_data(target, model)
