@@ -1,7 +1,7 @@
-**/*.pt
-**/*.csv
+*.pt
+*.csv
 **/features_*.txt
-**/*.dat
-**/*.pkl
-**/*.DS_Store
-./real/
+*.dat
+*.pkl
+*.DS_Store
+real/
