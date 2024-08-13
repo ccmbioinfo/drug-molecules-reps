@@ -6,3 +6,4 @@
 *.DS_Store
 real/
 find_unknown_tokens/
+*.out

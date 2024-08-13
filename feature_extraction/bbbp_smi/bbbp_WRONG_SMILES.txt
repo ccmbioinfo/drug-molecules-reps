@@ -1,0 +1,3 @@
+c1(CC(N2[C@H](CN(CC2)C(=O)C)C[N@]2CC[C@H](O)C2)=O)ccc(N(=O)=O)cc1
+c1(CC(N2[C@H](CN(CC2)C(=O)C)C[N@]2CC[C@H](O)C2)=O)cc(ccc1)N(=O)=O
+NC(=N)c1ccc(o1)c2ccccc2N(=O)=O

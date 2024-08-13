@@ -1,0 +1,24 @@
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+Running: fxa with ChemGPT-1.2B
+Filename: feature_outputs/features_labels_fxa_ChemGPT-1.2B.pt
+Pt file read: 
+2156
+Labels: 
+2156
+Starting umap reduction at: 1718996560.4933143
+df:            Dim1       Dim2   Labels
+0     -1.878990  16.284578  actives
+1     -1.899844  16.305294  actives
+2      6.925060  -7.918124  actives
+3      6.935426  -7.907817  actives
+4      6.942609  -7.900487  actives
+...         ...        ...      ...
+2151  15.084813  16.594416   decoys
+2152  15.398211  16.342842   decoys
+2153  15.322573  16.386120   decoys
+2154 -31.884174   6.023879   decoys
+2155  15.370618  16.528286   decoys
+
+[2156 rows x 3 columns]
+Reduction and saving took: 163.59406542778015

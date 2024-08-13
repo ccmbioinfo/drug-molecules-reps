@@ -1,0 +1,810 @@
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/umap/spectral.py:550: UserWarning: Spectral initialisation failed! The eigenvector solver
+failed. This is likely due to too small an eigengap. Consider
+adding some noise or jitter to your data.
+
+Falling back to random initialisation!
+  warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/umap/spectral.py:550: UserWarning: Spectral initialisation failed! The eigenvector solver
+failed. This is likely due to too small an eigengap. Consider
+adding some noise or jitter to your data.
+
+Falling back to random initialisation!
+  warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+/hpf/largeprojects/ccmbio/monikas/environments/conda_envs/vscode-env/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py:329: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn(
+Running: na with molgpt
+Filename: feature_outputs/features_labels_na_molgpt.pt
+Pt file read: 
+1762
+Labels: 
+1762
+Starting umap reduction at: 1718989230.2976637
+df:            Dim1       Dim2   Labels
+0     11.303416  11.050649  actives
+1      8.898322   9.847436  actives
+2      2.496258  16.906614  actives
+3     10.084346   9.746024  actives
+4      1.835989  14.243171  actives
+...         ...        ...      ...
+1757  11.501670  11.706213   decoys
+1758  10.241515   8.312243   decoys
+1759  11.156547  13.412721   decoys
+1760  13.070990   8.802006   decoys
+1761   9.588103  12.480491   decoys
+
+[1762 rows x 3 columns]
+Reduction and saving took: 22.217129468917847
+Running: na with BARTSmiles
+Filename: feature_outputs/features_labels_na_BARTSmiles.pt
+Pt file read: 
+1762
+Labels: 
+1762
+Starting umap reduction at: 1718989275.8258119
+df:            Dim1       Dim2   Labels
+0     10.552093   8.422702  actives
+1     10.378892   8.425283  actives
+2      9.885053   3.964229  actives
+3      8.485622   8.724612  actives
+4      8.374275   6.119061  actives
+...         ...        ...      ...
+1757  12.332805   5.010760   decoys
+1758   4.180380   9.170016   decoys
+1759   7.612015  12.064329   decoys
+1760  10.097449   8.613504   decoys
+1761   9.142697   8.146066   decoys
+
+[1762 rows x 3 columns]
+Reduction and saving took: 75.05860543251038
+Running: na with MolGen-7b
+Filename: feature_outputs/features_labels_na_MolGen-7b.pt
+Pt file read: 
+1762
+Labels: 
+1762
+Starting umap reduction at: 1718989396.3563669
+df:           Dim1      Dim2   Labels
+0     2.774849  3.092860  actives
+1     2.641530  3.175888  actives
+2     2.595959  3.048785  actives
+3     4.521494  4.103556  actives
+4     2.638176  2.870594  actives
+...        ...       ...      ...
+1757  6.824032  6.807047   decoys
+1758  7.045430  5.518724   decoys
+1759  6.508490  7.322612   decoys
+1760  5.815416  8.649160   decoys
+1761  2.880428  3.724067   decoys
+
+[1762 rows x 3 columns]
+Reduction and saving took: 250.82033967971802
+Running: na with ChemBERTa-77M-MTR
+Filename: feature_outputs/features_labels_na_ChemBERTa-77M-MTR.pt
+Pt file read: 
+1762
+Labels: 
+1762
+Starting umap reduction at: 1718989656.5910306
+df:            Dim1       Dim2   Labels
+0      3.604199   9.760858  actives
+1      3.808001   9.775872  actives
+2      4.504110  10.716736  actives
+3      6.826623  11.596184  actives
+4      5.417558  10.715067  actives
+...         ...        ...      ...
+1757  12.524137  10.757244   decoys
+1758   8.425471  10.433276   decoys
+1759  13.076708   6.982200   decoys
+1760  10.926242   5.594240   decoys
+1761   5.027394  10.627622   decoys
+
+[1762 rows x 3 columns]
+Reduction and saving took: 38.05703663825989
+Running: na with ChemGPT-1.2B
+Filename: feature_outputs/features_labels_na_ChemGPT-1.2B.pt
+Pt file read: 
+1762
+Labels: 
+1762
+Starting umap reduction at: 1718989704.4417863
+df:            Dim1       Dim2   Labels
+0    -12.126328  20.829174  actives
+1    -12.159247  20.952795  actives
+2     25.870527  33.403561  actives
+3     25.957088  33.351597  actives
+4     33.814041   2.334918  actives
+...         ...        ...      ...
+1757  20.605488  13.642639   decoys
+1758  17.566282  10.271951   decoys
+1759 -12.326380  20.969507   decoys
+1760  -7.473979   3.805349   decoys
+1761  -3.009207 -12.451180   decoys
+
+[1762 rows x 3 columns]
+Reduction and saving took: 101.8256323337555
+Running: p38 with molgpt
+Filename: feature_outputs/features_labels_p38_molgpt.pt
+Pt file read: 
+6916
+Labels: 
+6916
+Starting umap reduction at: 1718989824.412936
+df:           Dim1      Dim2   Labels
+0     7.939424  4.991494  actives
+1     5.791807  4.185873  actives
+2     3.579463 -0.378641  actives
+3     4.975481  2.000614  actives
+4     4.632477  1.870905  actives
+...        ...       ...      ...
+6911  2.342428  0.228983   decoys
+6912  8.462159  1.677137   decoys
+6913  8.423924  2.196381   decoys
+6914  4.873669  2.974974   decoys
+6915  5.942706 -2.752264   decoys
+
+[6916 rows x 3 columns]
+Reduction and saving took: 31.50558638572693
+Running: p38 with BARTSmiles
+Filename: feature_outputs/features_labels_p38_BARTSmiles.pt
+Pt file read: 
+6916
+Labels: 
+6916
+Starting umap reduction at: 1718989949.3937902
+df:            Dim1       Dim2   Labels
+0      7.148389   5.341563  actives
+1      2.391932   7.875516  actives
+2      5.243770   5.715061  actives
+3      4.107609   7.507627  actives
+4      4.179606   7.648100  actives
+...         ...        ...      ...
+6911   1.870199  10.513874   decoys
+6912  10.324583   5.318036   decoys
+6913   7.839432   7.579132   decoys
+6914   9.015477   8.024653   decoys
+6915  12.450271   4.930953   decoys
+
+[6916 rows x 3 columns]
+Reduction and saving took: 41.04946208000183
+Running: p38 with MolGen-7b
+Filename: feature_outputs/features_labels_p38_MolGen-7b.pt
+Pt file read: 
+6916
+Labels: 
+6916
+Starting umap reduction at: 1718990132.5652902
+df:            Dim1      Dim2   Labels
+0     17.514395  3.919024  actives
+1      9.585511  0.955791  actives
+2      1.076103 -0.429598  actives
+3     12.472671 -3.619190  actives
+4     12.451523 -3.641992  actives
+...         ...       ...      ...
+6911   3.372749  8.819534   decoys
+6912  -2.147890  1.245526   decoys
+6913  -0.140041 -3.748378   decoys
+6914  21.092989 -3.228384   decoys
+6915   0.317111 -2.566320   decoys
+
+[6916 rows x 3 columns]
+Reduction and saving took: 201.58589220046997
+Running: p38 with ChemBERTa-77M-MTR
+Filename: feature_outputs/features_labels_p38_ChemBERTa-77M-MTR.pt
+Pt file read: 
+6916
+Labels: 
+6916
+Starting umap reduction at: 1718990351.5360277
+df:           Dim1      Dim2   Labels
+0    -8.207710 -4.507068  actives
+1    -8.220553 -4.505689  actives
+2    -8.224178 -4.512702  actives
+3    -3.362852 -1.629362  actives
+4    -3.381636 -1.638404  actives
+...        ...       ...      ...
+6911  2.242596  3.974599   decoys
+6912 -3.076689 -1.906915   decoys
+6913  1.688368  3.081497   decoys
+6914  3.600279  4.213815   decoys
+6915  3.386745  6.124432   decoys
+
+[6916 rows x 3 columns]
+Reduction and saving took: 18.03011202812195
+Running: p38 with ChemGPT-1.2B
+Filename: feature_outputs/features_labels_p38_ChemGPT-1.2B.pt
+Pt file read: 
+6916
+Labels: 
+6916
+Starting umap reduction at: 1718990385.2270985
+df:            Dim1       Dim2   Labels
+0     17.022406  13.731123  actives
+1     -3.822661  -0.785959  actives
+2      2.071369  10.831356  actives
+3     21.546276 -11.926045  actives
+4     21.565252 -11.945028  actives
+...         ...        ...      ...
+6911  -3.671867   0.561844   decoys
+6912  -5.632766  -2.040520   decoys
+6913  -3.978856  -0.867082   decoys
+6914  17.087204  13.632223   decoys
+6915  -5.748848   0.546844   decoys
+
+[6916 rows x 3 columns]
+Reduction and saving took: 53.96479630470276
+Running: parp with molgpt
+Filename: feature_outputs/features_labels_parp_molgpt.pt
+Pt file read: 
+1381
+Labels: 
+1381
+Starting umap reduction at: 1718990441.3810132
+df:           Dim1       Dim2   Labels
+0    -1.440674   6.900561  actives
+1    -2.031569   9.422253  actives
+2     0.421000   7.998618  actives
+3     0.390435  10.949553  actives
+4     0.357995   7.986742  actives
+...        ...        ...      ...
+1376 -0.077747  10.863059   decoys
+1377  0.202775  11.098110   decoys
+1378 -2.398028  10.219172   decoys
+1379  0.845799   6.832172   decoys
+1380  0.788742   8.706920   decoys
+
+[1381 rows x 3 columns]
+Reduction and saving took: 10.380233764648438
+Running: parp with BARTSmiles
+Filename: feature_outputs/features_labels_parp_BARTSmiles.pt
+Pt file read: 
+1381
+Labels: 
+1381
+Starting umap reduction at: 1718990463.9954429
+df:           Dim1       Dim2   Labels
+0     8.707996  11.085516  actives
+1     8.896017   4.000456  actives
+2     5.774648   9.674280  actives
+3     7.913249   5.112909  actives
+4     5.588842   9.529408  actives
+...        ...        ...      ...
+1376  8.168297   5.158635   decoys
+1377  8.343273   4.226421   decoys
+1378  8.891550   4.112113   decoys
+1379  3.767859   9.357963   decoys
+1380  6.359485   9.689965   decoys
+
+[1381 rows x 3 columns]
+Reduction and saving took: 39.46247673034668
+Running: parp with MolGen-7b
+Filename: feature_outputs/features_labels_parp_MolGen-7b.pt
+Pt file read: 
+1381
+Labels: 
+1381
+Starting umap reduction at: 1718990528.035029
+df:           Dim1      Dim2   Labels
+0    -1.658214  6.383289  actives
+1    -1.689467  6.368313  actives
+2    -1.731626  6.415780  actives
+3    -1.676403  6.375526  actives
+4    -1.687498  6.345116  actives
+...        ...       ...      ...
+1376  7.044623  3.757735   decoys
+1377  3.233051  5.249997   decoys
+1378  5.020384  3.254711   decoys
+1379  0.509747  7.316360   decoys
+1380 -1.619052  6.346869   decoys
+
+[1381 rows x 3 columns]
+Reduction and saving took: 134.06643199920654
+Running: parp with ChemBERTa-77M-MTR
+Filename: feature_outputs/features_labels_parp_ChemBERTa-77M-MTR.pt
+Pt file read: 
+1381
+Labels: 
+1381
+Starting umap reduction at: 1718990666.5740864
+df:            Dim1       Dim2   Labels
+0      7.296002  16.007885  actives
+1      7.084242  16.232912  actives
+2      7.105741  16.171923  actives
+3      7.125449  16.173605  actives
+4      7.116822  16.240551  actives
+...         ...        ...      ...
+1376   9.630801   2.598114   decoys
+1377   8.329206  15.109501   decoys
+1378   9.464400   4.813808   decoys
+1379  11.029812  10.225127   decoys
+1380   7.224475  17.377285   decoys
+
+[1381 rows x 3 columns]
+Reduction and saving took: 17.554208278656006
+Running: parp with ChemGPT-1.2B
+Filename: feature_outputs/features_labels_parp_ChemGPT-1.2B.pt
+Pt file read: 
+1381
+Labels: 
+1381
+Starting umap reduction at: 1718990692.8525114
+df:            Dim1       Dim2   Labels
+0     11.676026 -12.291855  actives
+1     29.644928  -1.424075  actives
+2     -1.500736   5.031279  actives
+3     11.085384 -12.220564  actives
+4     11.138263 -12.400974  actives
+...         ...        ...      ...
+1376  10.677092 -11.015666   decoys
+1377  -1.406908   4.968256   decoys
+1378   0.327581  15.156639   decoys
+1379  -0.473364   4.465444   decoys
+1380  -1.286626   4.873252   decoys
+
+[1381 rows x 3 columns]
+Reduction and saving took: 71.93288850784302
+Running: pdgfrb with molgpt
+Filename: feature_outputs/features_labels_pdgfrb_molgpt.pt
+Pt file read: 
+5727
+Labels: 
+5727
+Starting umap reduction at: 1718990771.5428822
+df:            Dim1      Dim2   Labels
+0      9.337693  3.922773  actives
+1      9.521700  5.193417  actives
+2      9.558918  5.122083  actives
+3      8.697170  2.218988  actives
+4      8.122188  2.831145  actives
+...         ...       ...      ...
+5722  12.907293  3.187430   decoys
+5723   9.238985  4.752266   decoys
+5724  12.209319  4.018191   decoys
+5725   9.227414  1.004921   decoys
+5726   7.966321  8.520562   decoys
+
+[5727 rows x 3 columns]
+Reduction and saving took: 12.280014753341675
+Running: pdgfrb with BARTSmiles
+Filename: feature_outputs/features_labels_pdgfrb_BARTSmiles.pt
+Pt file read: 
+5727
+Labels: 
+5727
+Starting umap reduction at: 1718990883.0312386
+df:           Dim1       Dim2   Labels
+0     1.529957   9.438829  actives
+1     1.500902   9.398534  actives
+2     1.528994   9.398361  actives
+3     2.025594   9.720535  actives
+4     1.593093   9.408875  actives
+...        ...        ...      ...
+5722  0.433559  13.134808   decoys
+5723  2.298899   2.664994   decoys
+5724 -1.549436  11.483313   decoys
+5725  4.272713   9.290114   decoys
+5726  0.974252   6.472235   decoys
+
+[5727 rows x 3 columns]
+Reduction and saving took: 35.89769983291626
+Running: pdgfrb with MolGen-7b
+Filename: feature_outputs/features_labels_pdgfrb_MolGen-7b.pt
+Pt file read: 
+5727
+Labels: 
+5727
+Starting umap reduction at: 1718991026.2901406
+df:            Dim1       Dim2   Labels
+0     13.018063  -3.602428  actives
+1     13.283983   5.090201  actives
+2     11.767549   2.461588  actives
+3     16.877930   6.490188  actives
+4     14.666542   2.088073  actives
+...         ...        ...      ...
+5722   8.324052   3.928677   decoys
+5723   5.046951   4.675153   decoys
+5724   7.872652  -1.864043   decoys
+5725  11.251001   5.332797   decoys
+5726   8.546177  13.281830   decoys
+
+[5727 rows x 3 columns]
+Reduction and saving took: 150.48881006240845
+Running: pdgfrb with ChemBERTa-77M-MTR
+Filename: feature_outputs/features_labels_pdgfrb_ChemBERTa-77M-MTR.pt
+Pt file read: 
+5727
+Labels: 
+5727
+Starting umap reduction at: 1718991193.2185519
+df:           Dim1      Dim2   Labels
+0    -4.200082  5.470606  actives
+1    -4.199400  5.465084  actives
+2    -4.178961  5.478661  actives
+3    -4.154059  5.431207  actives
+4    -4.184577  5.455990  actives
+...        ...       ...      ...
+5722 -0.731718  0.769082   decoys
+5723  7.712180  1.297082   decoys
+5724  5.634827 -0.830721   decoys
+5725  8.686358  1.713565   decoys
+5726  5.652375 -0.044006   decoys
+
+[5727 rows x 3 columns]
+Reduction and saving took: 15.058085918426514
+Running: pdgfrb with ChemGPT-1.2B
+Filename: feature_outputs/features_labels_pdgfrb_ChemGPT-1.2B.pt
+Pt file read: 
+5727
+Labels: 
+5727
+Starting umap reduction at: 1718991226.7346294
+df:           Dim1       Dim2   Labels
+0     0.448352  12.641017  actives
+1     1.621824   9.682314  actives
+2     1.651808   9.239683  actives
+3     3.360117   7.509309  actives
+4     0.856130   9.810505  actives
+...        ...        ...      ...
+5722  0.829116   9.949871   decoys
+5723  0.600443  11.881495   decoys
+5724  3.560328   7.173713   decoys
+5725  4.338215   8.296307   decoys
+5726  2.073266  11.880650   decoys
+
+[5727 rows x 3 columns]
+Reduction and saving took: 43.46742081642151
+Running: sahh with molgpt
+Filename: feature_outputs/features_labels_sahh_molgpt.pt
+Pt file read: 
+1377
+Labels: 
+1377
+Starting umap reduction at: 1718991272.3859668
+df:            Dim1      Dim2   Labels
+0     11.715317 -1.985039  actives
+1     11.665028 -2.079808  actives
+2      9.775306 -0.801731  actives
+3      9.755742 -0.771098  actives
+4     11.894547 -1.552355  actives
+...         ...       ...      ...
+1372  10.960437  1.399903   decoys
+1373  10.000031  0.187454   decoys
+1374   8.926950  1.146646   decoys
+1375  14.545571  1.201891   decoys
+1376   8.748326 -0.450260   decoys
+
+[1377 rows x 3 columns]
+Reduction and saving took: 10.501287937164307
+Running: sahh with BARTSmiles
+Filename: feature_outputs/features_labels_sahh_BARTSmiles.pt
+Pt file read: 
+1377
+Labels: 
+1377
+Starting umap reduction at: 1718991300.70167
+df:            Dim1       Dim2   Labels
+0      8.333193   8.332206  actives
+1      8.530201   8.285892  actives
+2     12.890368   6.074483  actives
+3     12.874160   6.089595  actives
+4      8.344046   8.449916  actives
+...         ...        ...      ...
+1372  10.601247  11.855149   decoys
+1373  12.598078   9.324880   decoys
+1374  14.500412  10.340114   decoys
+1375   9.711477  11.989086   decoys
+1376  12.430624   9.705820   decoys
+
+[1377 rows x 3 columns]
+Reduction and saving took: 43.990999937057495
+Running: sahh with MolGen-7b
+Filename: feature_outputs/features_labels_sahh_MolGen-7b.pt
+Pt file read: 
+1377
+Labels: 
+1377
+Starting umap reduction at: 1718991374.5346625
+df:           Dim1      Dim2   Labels
+0     8.326073  6.887312  actives
+1     8.179494  6.732850  actives
+2     7.912444  6.590187  actives
+3     8.107485  6.784449  actives
+4     8.322542  6.894730  actives
+...        ...       ...      ...
+1372  9.929582  2.089867   decoys
+1373  8.605530  2.893853   decoys
+1374  7.782862  4.868874   decoys
+1375  7.924810  5.584228   decoys
+1376  7.917644  3.029270   decoys
+
+[1377 rows x 3 columns]
+Reduction and saving took: 145.7931604385376
+Running: sahh with ChemBERTa-77M-MTR
+Filename: feature_outputs/features_labels_sahh_ChemBERTa-77M-MTR.pt
+Pt file read: 
+1377
+Labels: 
+1377
+Starting umap reduction at: 1718991532.6110837
+df:           Dim1      Dim2   Labels
+0     3.341892  0.153567  actives
+1     3.413670  0.223187  actives
+2     3.942996  0.173597  actives
+3     3.888860  0.136427  actives
+4     3.289929  0.144514  actives
+...        ...       ...      ...
+1372  1.412779  5.837312   decoys
+1373  1.662923  4.662519   decoys
+1374  2.463869  5.563619   decoys
+1375  2.644606  2.932841   decoys
+1376  2.961414  7.964358   decoys
+
+[1377 rows x 3 columns]
+Reduction and saving took: 20.599612951278687
+Running: sahh with ChemGPT-1.2B
+Filename: feature_outputs/features_labels_sahh_ChemGPT-1.2B.pt
+Pt file read: 
+1377
+Labels: 
+1377
+Starting umap reduction at: 1718991559.301941
+df:            Dim1       Dim2   Labels
+0     16.032541  10.947866  actives
+1     16.087601  10.711688  actives
+2     16.011930  11.023337  actives
+3     15.915596  10.768669  actives
+4     16.139626  10.856046  actives
+...         ...        ...      ...
+1372  17.332779  10.538890   decoys
+1373  17.524307  10.564769   decoys
+1374  -4.868863  -2.815222   decoys
+1375  17.255930  10.684754   decoys
+1376  -4.823429  -3.026029   decoys
+
+[1377 rows x 3 columns]
+Reduction and saving took: 78.62576007843018
+Running: src with molgpt
+Filename: feature_outputs/features_labels_src_molgpt.pt
+Pt file read: 
+5777
+Labels: 
+5777
+Starting umap reduction at: 1718991653.8666723
+df:            Dim1      Dim2   Labels
+0     10.536993  0.488765  actives
+1     10.625362  0.011697  actives
+2      8.509956 -1.300856  actives
+3      8.490003 -1.298051  actives
+4     10.583642  0.082943  actives
+...         ...       ...      ...
+5772   8.339660 -0.912514   decoys
+5773  12.023268 -5.657194   decoys
+5774   7.693357  4.651539   decoys
+5775   8.209361  4.491328   decoys
+5776   8.699775  1.865516   decoys
+
+[5777 rows x 3 columns]
+Reduction and saving took: 17.837289810180664
+Running: src with BARTSmiles
+Filename: feature_outputs/features_labels_src_BARTSmiles.pt
+Pt file read: 
+5777
+Labels: 
+5777
+Starting umap reduction at: 1718991758.6605716
+df:           Dim1       Dim2   Labels
+0     5.344866  10.314980  actives
+1     5.340353  10.365235  actives
+2     5.050813  10.296815  actives
+3     5.012159  10.358484  actives
+4     5.418236  10.200023  actives
+...        ...        ...      ...
+5772  4.097948  15.886997   decoys
+5773  2.626695  12.798710   decoys
+5774  4.981846   7.001227   decoys
+5775  5.660591  12.158484   decoys
+5776  4.232233  14.508137   decoys
+
+[5777 rows x 3 columns]
+Reduction and saving took: 29.95491337776184
+Running: src with MolGen-7b
+Filename: feature_outputs/features_labels_src_MolGen-7b.pt
+Pt file read: 
+5777
+Labels: 
+5777
+Starting umap reduction at: 1718991901.4437222
+df:            Dim1       Dim2   Labels
+0      0.983532   1.059462  actives
+1      9.270494   3.971596  actives
+2      5.532807  18.404350  actives
+3      5.537453  18.395145  actives
+4     14.854044  -1.059424  actives
+...         ...        ...      ...
+5772  -7.228160  13.576098   decoys
+5773  -8.778412   0.381143   decoys
+5774  25.638584   4.081443   decoys
+5775   1.251550  -6.174335   decoys
+5776   3.653268   2.076150   decoys
+
+[5777 rows x 3 columns]
+Reduction and saving took: 159.71137833595276
+Running: src with ChemBERTa-77M-MTR
+Filename: feature_outputs/features_labels_src_ChemBERTa-77M-MTR.pt
+Pt file read: 
+5777
+Labels: 
+5777
+Starting umap reduction at: 1718992101.7743423
+df:           Dim1       Dim2   Labels
+0     8.377164  13.443369  actives
+1     8.313241  13.464506  actives
+2     8.597712  13.361892  actives
+3     8.622058  13.392933  actives
+4     8.516325  13.423906  actives
+...        ...        ...      ...
+5772  3.393420   4.505966   decoys
+5773  5.817720   0.111593   decoys
+5774  6.465861   1.876628   decoys
+5775  7.789678  -1.377138   decoys
+5776  4.836679   6.871250   decoys
+
+[5777 rows x 3 columns]
+Reduction and saving took: 16.315627813339233
+Running: src with ChemGPT-1.2B
+Filename: feature_outputs/features_labels_src_ChemGPT-1.2B.pt
+Pt file read: 
+5777
+Labels: 
+5777
+Starting umap reduction at: 1718992140.8260467
+df:            Dim1       Dim2   Labels
+0      6.205111  21.688393  actives
+1      1.165124  22.265318  actives
+2     -9.593707  -8.754497  actives
+3     -9.097376  -8.515339  actives
+4      7.575452   1.439806  actives
+...         ...        ...      ...
+5772   8.851220   3.512151   decoys
+5773  11.299812   1.866027   decoys
+5774  -8.836894  -8.851267   decoys
+5775   8.105268   3.825583   decoys
+5776   7.406487   3.023532   decoys
+
+[5777 rows x 3 columns]
+Reduction and saving took: 43.448742151260376
+Running: vegfr2 with molgpt
+Filename: feature_outputs/features_labels_vegfr2_molgpt.pt
+Pt file read: 
+2760
+Labels: 
+2760
+Starting umap reduction at: 1718992188.6300843
+df:            Dim1      Dim2   Labels
+0     10.351791  3.078182  actives
+1     10.163983  2.829995  actives
+2     12.565667  2.177248  actives
+3      8.283877  4.661177  actives
+4      9.307935  3.538364  actives
+...         ...       ...      ...
+2755   8.531974  9.543300   decoys
+2756  11.513597  4.279049   decoys
+2757   8.597135  6.619591   decoys
+2758   8.569120  6.615009   decoys
+2759  11.524069  3.576794   decoys
+
+[2760 rows x 3 columns]
+Reduction and saving took: 36.64347314834595
+Running: vegfr2 with BARTSmiles
+Filename: feature_outputs/features_labels_vegfr2_BARTSmiles.pt
+Pt file read: 
+2760
+Labels: 
+2760
+Starting umap reduction at: 1718992258.0863242
+df:            Dim1      Dim2   Labels
+0      8.485206  6.282779  actives
+1      8.508446  6.231231  actives
+2     10.414411  7.336010  actives
+3      9.994081  7.449881  actives
+4      8.020863  6.073518  actives
+...         ...       ...      ...
+2755   8.986215  2.650944   decoys
+2756  10.136635  6.391177   decoys
+2757   8.863338  6.517212   decoys
+2758   9.113317  6.010379   decoys
+2759  10.476190  7.519567   decoys
+
+[2760 rows x 3 columns]
+Reduction and saving took: 158.06264114379883
+Running: vegfr2 with MolGen-7b
+Filename: feature_outputs/features_labels_vegfr2_MolGen-7b.pt
+Pt file read: 
+2760
+Labels: 
+2760
+Starting umap reduction at: 1718992472.6248102
+df:            Dim1      Dim2   Labels
+0      9.181955 -0.811923  actives
+1      9.176483 -0.858850  actives
+2      9.222863 -0.813953  actives
+3      9.563360  0.779356  actives
+4      9.163688 -0.799359  actives
+...         ...       ...      ...
+2755  11.978867 -2.659716   decoys
+2756   9.916434  3.985901   decoys
+2757  13.886885  3.664515   decoys
+2758  13.295768  3.874658   decoys
+2759  12.202166  5.793626   decoys
+
+[2760 rows x 3 columns]
+Reduction and saving took: 578.0492806434631
+Running: vegfr2 with ChemBERTa-77M-MTR
+Filename: feature_outputs/features_labels_vegfr2_ChemBERTa-77M-MTR.pt
+Pt file read: 
+2760
+Labels: 
+2760
+Starting umap reduction at: 1718993064.601188
+df:            Dim1      Dim2   Labels
+0     13.569469  0.632020  actives
+1     13.594941  0.598562  actives
+2     13.631866  0.686651  actives
+3      7.459016 -0.603345  actives
+4     13.522399  0.719362  actives
+...         ...       ...      ...
+2755  10.586339  1.030819   decoys
+2756   6.471493 -0.218583   decoys
+2757   0.928421 -1.721425   decoys
+2758   0.830700 -1.636463   decoys
+2759   0.210220 -3.340613   decoys
+
+[2760 rows x 3 columns]
+Reduction and saving took: 73.53445982933044
+Running: vegfr2 with ChemGPT-1.2B
+Filename: feature_outputs/features_labels_vegfr2_ChemGPT-1.2B.pt
+Pt file read: 
+2760
+Labels: 
+2760
+Starting umap reduction at: 1718993147.0395448
+df:            Dim1       Dim2   Labels
+0    -10.644378  -3.385856  actives
+1    -10.582000  -3.438068  actives
+2     30.391033  -3.685612  actives
+3     11.746700 -15.869289  actives
+4     13.230488  22.809341  actives
+...         ...        ...      ...
+2755  30.336050  -3.657134   decoys
+2756   7.864165  -2.613064   decoys
+2757 -10.454896  -3.860982   decoys
+2758 -11.028749  -3.430967   decoys
+2759   8.185708  -1.953505   decoys
+
+[2760 rows x 3 columns]
+Reduction and saving took: 193.12566566467285
